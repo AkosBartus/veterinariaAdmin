@@ -1,0 +1,20 @@
+<header>
+  <h1>Veterinarian admin - clients</h1>
+</header>
+<div>
+  <input type="text" [value]="searchTerm" [(ngModel)]="searchTerm" />
+  <button
+    (click)="searchClients(searchTerm)"
+    [disabled]="searchTerm.length < 3"
+  >
+    Keresés
+  </button>
+</div>
+<section *ngIf="!isLoading">
+  <app-client
+    *ngFor="let client of clients"
+    [client]="client"
+    (toggleVaccinated)="toggleVaccinatedStatus($event)"
+  ></app-client>
+</section>
+<div *ngIf="isLoading">Betöltés...</div>

@@ -1,0 +1,14 @@
+<div class="client">
+  <h2>{{ client?.name }}</h2>
+  <ul>
+    <li *ngFor="let pet of client?.pets">
+      <span>Name: {{ pet.name }}</span> |
+      <span>Animal: {{ pet.animal }}</span> |
+      <span>Vaccinated: {{ pet.isVaccinated ? "Yes" : "No" }}</span>
+      <button (click)="toggleVaccinationStatus(pet)">
+        Toggle Vaccination Status
+      </button>
+    </li>
+  </ul>
+</div>
+<div *ngIf="isLoading">...</div>
